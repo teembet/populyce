@@ -1,0 +1,35 @@
+<ion-split-pane contentId="content">
+  <ion-menu contentId="content">
+    <!-- <ion-header>
+      <ion-toolbar color="theme">
+        <ion-title> Menu </ion-title>
+      </ion-toolbar>
+    </ion-header> -->
+
+    <ion-content class="ion-padding">
+      <!-- <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+          <ion-item
+            [routerLink]="p.url"
+            routerDirection="root"
+            [class.active-item]="selectedPath.startsWith(p.url)"
+          >
+            <ion-label> {{p.title}} </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list> -->
+
+      <div class="">
+        <h1>Menu</h1>
+        <br />
+        <h4 (click)="fund()">Fund</h4>
+        <br />
+        <h4 (click)="activities()">Activities</h4>
+        <br />
+        <h4 (click)="external_bank()">External Bank</h4>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>

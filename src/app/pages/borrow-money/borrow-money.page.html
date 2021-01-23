@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+      defaultHref="move-money"
+      color="theme"
+    ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Borrow Money</ion-title>
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding"  *ngIf="here">
+  <div>
+    <p style="font-weight: bold;">
+      Borrow with collateral on Fund
+    </p>
+    <h5>
+      To
+    </h5>
+    <ion-card>
+      <div class="first">
+        <div>
+          <h4>Bank:Chase Account</h4>
+        </div>
+      </div>
+    </ion-card>
+    <br>
+    <br>
+    <div>
+      <ion-item>
+        <ion-label position="stacked">Amount</ion-label>
+        <ion-input
+          type="number"
+          clearInput="true"
+        [(ngModel)]="amountInput"
+          required
+        ></ion-input>
+      </ion-item>
+    </div>
+    <br>
+    <br>
+    <ion-card class="mycolor">
+      <div class="first">
+        <div>
+          <h6 style="display: contents;color: black; font-weight: bold;">Borrow Information</h6>
+          <p class="text" style="font-weight: 100;">Amount Available:{{(amounts.amount/100)*30 | currency}}</p>
+        </div>
+  
+        <div>
+          <br>
+          <p class="text">Interest rate:6%<p>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+  <div class="bottom">
+    <ion-button
+      (click)="borrow()"
+      expand="block"
+      fill="solid"
+      size="large"
+      color="green"
+    >
+   Borrow
+    </ion-button>
+    <br />
+  </div>
+
+
+</ion-content>

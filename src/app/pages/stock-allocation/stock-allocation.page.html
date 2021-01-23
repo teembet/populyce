@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="menu/first/tabs/funds/fund-inner"
+        color="theme"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Stock Allocation</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="here">
+    <!-- <div>
+    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions">
+    </highcharts-chart>
+  </div> -->
+
+    <div class="circle">
+      <div class="wave">
+        <h3>{{stocks.stock_sum | currency}}</h3>
+        <h5 class="">-$243.00</h5>
+        <h5 class="">1.3% &#11014;</h5>
+      </div>
+    </div>
+
+    <p>Click on each stock to see more infomation.</p>
+
+    <h6 class="h6">Time range: 1 year</h6>
+
+    <div *ngFor="let item of stocks.stocks">
+      <ion-card>
+        <div class="bar3"></div>
+        <div class="chart">
+          <img src="../../../assets/Stock Allocation Icon.png" alt="" />
+        </div>
+        <div class="first">
+          <div>
+            <h4>{{filter_name(item.name)}}</h4>
+            <h6>{{item.percent.toFixed(2)}}/100%</h6>
+          </div>
+
+          <div>
+            <h4>{{filter_price(item.name)* item.percentage |currency}}</h4>
+            <h6 class="green">
+              {{filter_price(item.name)|currency}} |
+              {{((filter_price(item.name)/item.stock_price)* 100 ).toFixed()}} %
+              &#11014;
+            </h6>
+          </div>
+        </div>
+      </ion-card>
+      <br />
+    </div>
+
+    <div *ngIf="stocks.stocks.length <=0" class="ion-padding">
+      <h1 style="text-align: center">No Sock Available</h1>
+
+      <ion-button
+        expand="block"
+        fill="solid"
+        color="green"
+        size="large"
+        [routerLink]="['/stock-profile']"
+      >
+        Get Stock
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

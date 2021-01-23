@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/funds" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Activity</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" value="cash">
+      <ion-segment-button value="cash">
+        <ion-label>Cash</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="loan">
+        <ion-label>Loan</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="stock">
+        <ion-label>Stock</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="here">
+    <ion-list *ngIf="where == 'loan' ">
+      <ion-item *ngFor="let item of history.loans" lines="none">
+        <div class="first">
+          <div>
+            <h4>{{ item.amount >= 0 ? "Deposit" : "Withdrawal"}}</h4>
+            <h6>{{item.created_at | date}}</h6>
+          </div>
+
+          <div>
+            <h6>{{item.amount |currency}}</h6>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="where == 'cash' ">
+      <ion-item *ngFor="let item of history.cashes" lines="none">
+        <div class="first">
+          <div>
+            <h4>{{ item.amount >= 0 ? "Deposit" : "Withdrawal"}}</h4>
+            <h6>{{item.created_at | date}}</h6>
+          </div>
+
+          <div>
+            <h6>{{item.amount |currency}}</h6>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="where == 'stock' ">
+      <ion-item *ngFor="let item of history.stocks" lines="none">
+        <div class="first">
+          <div>
+            <h4>{{ item.status == "true" ? "Bought" : "Liquidated"}}</h4>
+            <h6>{{item.created_at | date}}</h6>
+          </div>
+
+          <div>
+            <h6>{{item.amount |currency}}</h6>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

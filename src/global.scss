@@ -1,0 +1,84 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~animate.css/animate.min.css";
+
+@font-face {
+  font-family: Bahnschrift Light;
+  src: url(./assets/fonts/BAHNSCHRIFT14.TTF) format("truetype");
+  font-weight: lighter;
+}
+
+.ion-color-theme {
+  --ion-color-base: var(--ion-color-yellow, #f06d3d) !important;
+  --ion-color-base-rgb: var(--ion-color-yellow-rgb, 34, 36, 40) !important;
+  --ion-color-contrast: var(--ion-color-yellow-contrast, #fff) !important;
+  --ion-color-contrast-rgb: var(
+    --ion-color-yellow-contrast-rgb,
+    255,
+    255,
+    255
+  ) !important;
+  --ion-color-shade: var(--ion-color-yellow-shade, #f06d3d) !important;
+  --ion-color-tint: var(--ion-color-yellow-tint, #f06d3d) !important;
+}
+.ion-color-green {
+  --ion-color-base: var(--ion-color-green, #63a88f) !important;
+}
+// #63a88f
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+i,
+ion-title,
+ion-card-subtitle,
+ion-card-title,
+ion-card-content {
+  font-family: "Bahnschrift Light";
+}
+
+ion-header ion-title {
+  color: #000;
+  font-family: "Bahnschrift Light";
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: 100;
+}
+
+ion-menu {
+  --min-width: 100%;
+  --height: 90%;
+}
+
+ion-content {
+  --background: #f8f8ff !important;
+}

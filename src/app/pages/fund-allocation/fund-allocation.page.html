@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="menu/first/tabs/funds"
+        color="theme"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Fund Allocation</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="amounts">
+    <!-- <div>
+    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions">
+    </highcharts-chart>
+  </div> -->
+
+    <div class="circle">
+      <div class="wave">
+        <h3>{{amounts.cash | currency}}</h3>
+        <h5>
+          -{{ (amounts.cash - ( amounts.cash/100 * (inflation))).toFixed(2) |
+          currency}}
+        </h5>
+        <h5>{{inflation}}% &#11015;</h5>
+      </div>
+    </div>
+
+    <p>
+      Your cash remains the same, but due to inflation cash is devalued. The
+      amount is shown in the red.
+    </p>
+
+    <h6 class="h6">Time range: 1 year</h6>
+
+    <ion-card>
+      <div class="bar"></div>
+      <div class="chart">
+        <img src="../../../assets/Cash Allocation Icon.png" alt="" />
+      </div>
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Cash Allocation</h4>
+          <h6>{{amounts.cash_percentage.toFixed(2)}}/100%</h6>
+        </div>
+
+        <div>
+          <h4>{{amounts.cash | currency}}</h4>
+          <h6 class="red">
+            - {{ (amounts.cash - ( amounts.cash/100 * (inflation))).toFixed(2) |
+            currency}} | {{inflation}} $ &#11015;
+          </h6>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

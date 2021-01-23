@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="external-bank" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Withdraw</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+<div  class="form-container animate__animated animate__slideInUp animate__faster">
+  <ion-item>
+    <ion-label position="stacked">Amount </ion-label>
+    <ion-input
+      type="tel"
+      clearInput="true"
+      required
+      type="text"
+      [(ngModel)]="withdraw_amount"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">From </ion-label>
+    <ion-select [(ngModel)]="destination" placeholder="Choose fund">
+      <ion-select-option value="cash">Cash</ion-select-option>
+      <ion-select-option value="loan">Loan</ion-select-option>
+    </ion-select>
+  </ion-item>
+<br>
+  <ion-button class=""
+    expand="block"
+    fill="solid"
+    color="green"
+    (click)="withdraw()"
+  >
+    Withdraw
+  </ion-button>
+</div>
+</div>
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/funds" color="theme"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center">Fund</ion-title>
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon size="large" color="theme" name="notifications-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="here">
+    <!-- <div>
+        <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions">
+        </highcharts-chart>
+      </div> -->
+
+    <div class="circle">
+      <div class="wave">
+        <h3>{{amounts.amount | currency }}</h3>
+        <h5>
+          +{{(amounts.amount+(amounts.amount/100 *(6-inflation))).toFixed(2) |
+          currency}}
+        </h5>
+        <h5>{{(6-inflation) }}% &#11014;</h5>
+      </div>
+    </div>
+    <div class="first" style="width: 100%">
+      <div>
+        <h6>FDIC insures $250,000</h6>
+      </div>
+
+      <div>
+        <h6>Time range: 1 year</h6>
+      </div>
+    </div>
+    <ion-card (click)="cash_allocation()">
+      <div class="bar"></div>
+      <div class="chart">
+        <img src="../../../assets/Cash Allocation Icon.png" alt="" />
+      </div>
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Cash Allocation</h4>
+          <h6>{{amounts.cash_percentage.toFixed(2) }}%/100%</h6>
+        </div>
+
+        <div>
+          <h4>{{amounts.cash | currency }}</h4>
+          <h6 class="red">
+            - {{ ( amounts.cash/100 * (inflation)).toFixed(2) |
+            currency}} | {{inflation}}% &#11015;
+          </h6>
+        </div>
+      </div>
+    </ion-card>
+    <br />
+    <ion-card (click)="loan_allocation()">
+      <div class="bar2"></div>
+      <div class="chart">
+        <img src="../../../assets/Loan Allocation Icon.png" alt="" />
+      </div>
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Loan Allocation</h4>
+          <h6>{{amounts.loan_percentage.toFixed(2) }}%/100%</h6>
+        </div>
+
+        <div>
+          <h4>{{amounts.loan | currency }}</h4>
+          <h6 class="green">+ {{ calculate() | currency}} | {{6 - inflation}}% &#11014;</h6>
+        </div>
+      </div>
+    </ion-card>
+    <br />
+    <ion-card (click)="stock_allocation()">
+      <div class="bar3"></div>
+      <div class="chart">
+        <img src="../../../assets/Stock Allocation Icon.png" alt="" />
+      </div>
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Stock Allocation</h4>
+          <h6>{{amounts.stock_percentage.toFixed(2) }}%/100%</h6>
+        </div>
+
+        <div>
+          <h4>{{amounts.stock | currency }}</h4>
+          <!-- <h6 class="green">+$6,562.50 | 7% &#11014;</h6> -->
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

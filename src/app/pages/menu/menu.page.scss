@@ -1,0 +1,41 @@
+.active-item {
+  border-left: 8px solid var(--ion-color-primary);
+}
+
+// .logout {
+//     position: absolute;
+//     bottom: 0;
+// }
+
+// ion-content,
+// ion-item,
+// ion-header,
+// ion-list {
+//     --background: #F06D3D
+// }
+
+ion-menu {
+  --min-width: 100%;
+}
+
+ion-content {
+  --background: #f06d3d !important;
+}
+
+h1 {
+  color: #000;
+  font-family: "Bahnschrift Light";
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  font-weight: 100;
+}
+
+h4 {
+  color: #fff;
+  font-family: "Bahnschrift Light";
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  font-weight: 100;
+}

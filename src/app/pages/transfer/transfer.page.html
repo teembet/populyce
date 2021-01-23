@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="theme"> </ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Transfer</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="here">
+    <div class="top-header ion-padding">
+      <div class="first">
+        <div>
+          <h6>Fund:</h6>
+          <h4>{{amounts.amount | currency }}</h4>
+        </div>
+
+        <div>
+          <h6>Borrow:</h6>
+          <h4>{{amounts.borrow | currency}}</h4>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h6>Total:</h6>
+          <h2>{{ total | currency }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="ion-padding">
+      <h3>Schedule</h3>
+
+      <div *ngIf="amounts.re_occurrence_borrow.length > 0 ">
+        <h5>Borrowing Interval</h5>
+        <div *ngFor="let item of amounts.re_occurrence_borrow">
+          <ion-card>
+            <div class="first">
+              <div>
+                <h4>To Fund</h4>
+                <h6>From Bank: CHASE:</h6>
+              </div>
+
+              <div>
+                <h4>{{item.amount | currency}}</h4>
+                <h6>{{item.interval}}</h6>
+              </div>
+            </div>
+          </ion-card>
+          <br />
+        </div>
+      </div>
+
+      <div *ngIf="amounts.re_occurrence_borrow.length == 0 ">
+        <ion-card>
+          <h3>No Reoccurring Borrow</h3>
+        </ion-card>
+        <br />
+      </div>
+
+      <div *ngIf="amounts.re_occurrence.length > 0 ">
+        <h5>Funding Interval</h5>
+        <div *ngFor="let item of amounts.re_occurrence">
+          <ion-card>
+            <div class="first">
+              <div>
+                <h4>To Pay</h4>
+                <h6>From Bank: CHASE:</h6>
+              </div>
+
+              <div>
+                <h4>{{item.amount | currency}}</h4>
+                <h6>{{item.interval}}</h6>
+              </div>
+            </div>
+          </ion-card>
+          <br />
+        </div>
+      </div>
+<br>
+      <div *ngIf="amounts.re_occurrence.length == 0 ">
+        <ion-card>
+          <h3>No Reoccurring Funding</h3>
+        </ion-card>
+        <br />
+      </div>
+
+      <div class="bottom">
+        <ion-button
+          (click)="move_money()"
+          mode="ios"
+          expand="block"
+          fill="solid"
+          size="large"
+          color="green"
+        >
+          Move Money
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

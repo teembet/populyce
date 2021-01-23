@@ -1,0 +1,30 @@
+.center {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+// .bottom {
+//   height: 70vh;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
+
+.small-text {
+  // margin-top: -20px;
+  font-size: 11px !important;
+  // margin-bottom: 30px;
+  
+  font-family: Bahnschrift Light, "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif !important;
+  margin: 0px;
+}
+
+.signup {
+  color: #f06d3d;
+}
+
+ion-content {
+  --background: #fff !important;
+}

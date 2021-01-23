@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/funds" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-align-items-center ion-text-center"
+      >User Info</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding back">
+  <div class="back">
+    <div *ngIf="here">
+      <div class="ion-padding ion-card">
+        <ion-card-subtitle class="age">Name</ion-card-subtitle>
+        <ion-card-title class="users-name">{{user_info.name}}</ion-card-title>
+        <br />
+        <ion-card-subtitle class="age">Email</ion-card-subtitle>
+        <ion-card-title class="users-name">{{user_info.email}}</ion-card-title>
+        <br />
+        <ion-card-subtitle class="age">Phone</ion-card-subtitle>
+        <ion-card-title class="users-name">{{user_info.phone}}</ion-card-title>
+        <br />
+        <ion-card-subtitle class="age">Gender</ion-card-subtitle>
+        <ion-card-title class="users-name">{{user_info.gender}}</ion-card-title>
+        <br />
+        <ion-card-subtitle class="age">City</ion-card-subtitle>
+        <ion-card-title class="users-name">{{user_info.city}}</ion-card-title>
+        <br />
+        <ion-card-subtitle class="age">Country</ion-card-subtitle>
+        <ion-card-title class="users-name"
+          >{{user_info.country}}</ion-card-title
+        >
+        <!-- <br /> -->
+        <!-- <ion-card-subtitle class="age">Last Visit to a Bank</ion-card-subtitle>
+        <ion-card-title class="users-name"
+          >{{user_info.last_time}}</ion-card-title
+        > -->
+      </div>
+      <div class="bottom">
+        <ion-button
+          mode="ios"
+          (click)="logout()"
+          expand="block"
+          fill="solid"
+          size="large"
+          color="green"
+        >
+          Log Out
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

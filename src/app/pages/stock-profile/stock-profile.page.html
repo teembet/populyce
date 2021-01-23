@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/manage" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Stock Portfolio</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="here">
+    <div class="outer">
+      <div class="round"></div>
+    </div>
+
+    <p class="para">Choose a percentage for each stock</p>
+    <div class="btn-holder">
+      <ion-button mode="ios" fill="solid" (click)="stock()" color="green">
+        Add Stock
+      </ion-button>
+    </div>
+    <br />
+    <div
+      *ngIf="stock_div"
+      class="form-container ion-padding animate__animated animate__slideInUp animate__faster"
+    >
+      <ion-item>
+        <ion-label position="stacked">Amount </ion-label>
+        <ion-input
+          type="tel"
+          clearInput="true"
+          required
+          type="text"
+          [(ngModel)]="stock_amount"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Stock name </ion-label>
+        <ion-select [(ngModel)]="stock_name" placeholder="Choose fund">
+          <ion-select-option
+            *ngFor="let item of stock_info.companies"
+            [value]="item.InstrumentID"
+            >{{item.InstrumentDisplayName}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label position="stacked">Choose Stock Name </ion-label>
+        <ionic-selectable
+          [(ngModel)]="stock_name"
+          [items]="stock_info.companies"
+          itemValueField="InstrumentID"
+          itemTextField="InstrumentDisplayName"
+          [canSearch]="true"
+          (onChange)="portChange($event)"
+        >
+        </ionic-selectable>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label position="stacked">From </ion-label>
+        <ion-select [(ngModel)]="stock_select" placeholder="Choose fund">
+          <ion-select-option value="cash">Cash</ion-select-option>
+          <ion-select-option value="loan">Loan</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        fill="solid"
+        color="green"
+        (click)="buy_stock()"
+      >
+        Finalize
+      </ion-button>
+    </div>
+    <br />
+    <div *ngFor="let item of stocks.stocks ; let i = index">
+      <div class="ion-card">
+        <div class="first">
+          <div>
+            <h4>{{filter_name(item.name)}}</h4>
+            <h6>{{filter_price(item.name)* item.percentage |currency}}</h6>
+          </div>
+
+          <div>
+            <h4>
+              {{item.percent.toFixed(2)}} / 100%
+              <i class="ion-padding" (click)="delete(item.id, item.name)">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </i>
+            </h4>
+            <h6>{{filter_price(item.name)|currency}}</h6>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <br />
+  </div>
+</ion-content>

@@ -1,0 +1,79 @@
+ion-menu-button {
+  font-size: 40px !important;
+  --ionicon-stroke-width: 32px;
+}
+
+.top-header {
+  height: 126px;
+  background-color: #f06d3d;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+h6 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 0;
+}
+
+h4,
+h2 {
+  line-height: 1px;
+  color: #fff;
+  font-weight: 100;
+}
+
+.first {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 30px;
+  width: 90%;
+}
+
+h3 {
+  padding-left: 5%;
+  color: #707070;
+  font-family: "Bahnschrift Light";
+  font-size: 24px;
+  line-height: 0;
+}
+
+ion-card {
+  margin: 0;
+  color: #000;
+  padding: 5%;
+  border-radius: 18px;
+  background-color: #fff;
+  box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.5);
+  h6 {
+    color: #707070;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 0;
+  }
+
+  h4,
+  h2 {
+    line-height: 1px;
+    color: #000;
+    font-weight: 100;
+  }
+}
+.mycolor{
+  background-color: #E3E3FF;
+}
+
+.text{
+  
+  color: #707070;
+  font-size: 13px;
+  font-weight: 100;
+  line-height: 0;
+}

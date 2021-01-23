@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="menu/first/tabs/transfer"
+        color="theme"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Move Money</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card (click)="transfer_one()">
+    <div class="chart" style="align-self: center">
+      <img src="../../../assets/tarrow.png" alt="" />
+    </div>
+    <div class="first">
+      <div>
+        <h4>One-time Transfer</h4>
+        <p>Transfer between any account</p>
+      </div>
+    </div>
+  </ion-card>
+  <br />
+  <ion-card (click)="recurring()">
+    <div class="chart" style="align-self: center">
+      <img src="../../../assets/rarrow.png" alt="" />
+    </div>
+    <div class="first">
+      <div>
+        <h4>Recurring Transfer</h4>
+        <p>Create a funding Schedule</p>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>

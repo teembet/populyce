@@ -1,0 +1,227 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Sign Up</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <div class="center">
+      <ion-thumbnail class="ion-align-items-center center ion-text-center">
+        <img src="../../../assets/Group.png" />
+      </ion-thumbnail>
+    </div>
+    <br />
+
+    <div *ngIf="first">
+      <div style="display: flex; justify-content: flex-end">
+        <ion-icon
+          size="large"
+          slot="end"
+          name="chevron-forward-outline"
+          color="theme"
+          (click)="goforward()"
+        ></ion-icon>
+      </div>
+      <br />
+      <div class="center">
+        <img src="../../../assets/1.png" />
+      </div>
+      <br />
+      <div class="center">
+        <img src="../../../assets/register.png" />
+      </div>
+      <br />
+      <br />
+
+      <ion-item>
+        <ion-label position="stacked">Email </ion-label>
+        <ion-input
+          type="email"
+          clearInput="true"
+          [(ngModel)]="email"
+          name="email"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Phone No</ion-label>
+        <ion-input
+          type="tel"
+          clearInput="true"
+          [(ngModel)]="phone"
+          name="phone"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Age</ion-label>
+        <ion-datetime
+          value="1990-02-19"
+          placeholder="Select Date"
+          [(ngModel)]="age"
+          name="age"
+          required
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Gender</ion-label>
+        <ion-select [(ngModel)]="gender" name="gender" required>
+          <ion-select-option value="M">Male</ion-select-option>
+          <ion-select-option value="F">Female</ion-select-option>
+          <ion-select-option value="O">OThers</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">City</ion-label>
+        <ion-input
+          clearInput="true"
+          [(ngModel)]="city"
+          name="city"
+          required
+          type="text"
+        ></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Country</ion-label>
+        <ion-input
+          clearInput="true"
+          [(ngModel)]="country"
+          name="country"
+          required
+          type="text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">The last time you went into a physical bank location</ion-label>
+        <ion-input
+          clearInput="true"
+          [(ngModel)]="last_time"
+          name="last_time"
+          required
+          type="text"
+        ></ion-input>
+      </ion-item>
+
+      <br />
+      <br />
+      <div class="bottom">
+        <br />
+        <ion-text>
+          <p class="small-text ion-text-center ion-align-items-center">
+            Have an account? <a (click)="login()" class="signup">Login</a>
+          </p>
+        </ion-text>
+      </div>
+    </div>
+    <br />
+    <div *ngIf="!first">
+      <div style="display: flex; justify-content: flex-start">
+        <ion-icon
+          size="large"
+          slot="end"
+          name="chevron-back-outline"
+          color="theme"
+          (click)="goback()"
+        ></ion-icon>
+      </div>
+      <div class="center">
+        <img src="../../../assets/2.png" />
+      </div>
+      <br />
+      <div class="center">
+        <img src="../../../assets/register.png" />
+      </div>
+      <br />
+      <br />
+
+      <ion-item>
+        <ion-label position="stacked">Username </ion-label>
+        <ion-input
+          type="text"
+          clearInput="true"
+          [(ngModel)]="name"
+          required
+          type="text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password </ion-label>
+        <ion-input
+          type="password"
+          clearInput="true"
+          [(ngModel)]="password"
+          required
+          type="password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Confirm Password </ion-label>
+        <ion-input
+          type="password"
+          clearInput="true"
+          [(ngModel)]="confirm_password"
+          required
+          type="password"
+        ></ion-input>
+      </ion-item>
+
+      <br />
+      <br />
+      <div class="bottom">
+        <ion-button
+          (click)="clickSubmit()"
+          expand="block"
+          fill="solid"
+          size="large"
+          color="green"
+        >
+          Sign Up
+        </ion-button>
+        <br />
+      </div>
+    </div>
+  </div>
+<!-- 
+  <div *ngIf="registered">
+    <div class="center">
+      <ion-thumbnail class="ion-align-items-center center ion-text-center">
+        <img src="../../../assets/Group.png" />
+      </ion-thumbnail>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Token</ion-label>
+      <ion-input
+        clearInput="true"
+        [(ngModel)]="token"
+        name="token"
+        required
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <br />
+    <br />
+    <div class="bottom">
+      <ion-button
+        (click)="submitToken()"
+        expand="block"
+        fill="solid"
+        size="large"
+        color="green"
+      >
+        Verify
+      </ion-button>
+      <br />
+    </div>
+  </div> -->
+</ion-content>

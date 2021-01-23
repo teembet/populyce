@@ -1,0 +1,35 @@
+.ion-card {
+  background: #e3e3ff;
+
+  border-radius: 18px;
+}
+
+ion-card-title {
+  color: #000;
+  font-family: "Bahnschrift Light";
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.age {
+  color: #000;
+  font-family: "Bahnschrift Light";
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.users-name {
+  color: #000;
+  font-family: "Bahnschrift Light";
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 30px;
+  width: 90%;
+}
+.back{
+  background: url(../../../assets/account.png);
+}

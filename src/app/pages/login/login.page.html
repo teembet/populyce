@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-align-items-center ion-text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="center">
+    <ion-thumbnail class="ion-align-items-center center ion-text-center">
+      <ion-img src="../../../assets/Group.png" ></ion-img>
+    </ion-thumbnail>
+  </div>
+
+  <div class="center">
+   
+      <img src="../../../assets/login.png" />
+    
+  </div>
+  <br>
+  <br>
+  <form [formGroup]="formSignIn" class="fields">
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input  type="email" clearInput="true" formControlName="email" required></ion-input>
+  </ion-item>
+  <div class="error" *ngIf="
+  formSignIn.controls.email.invalid &&
+  formSignIn.controls.email.touched
+">
+<ion-label class=""> Please, fill in Email</ion-label>
+</div>
+  <ion-item>
+    <ion-label position="stacked">Password </ion-label>
+    <ion-input  clearInput="true" formControlName="password"  required type="password"></ion-input>
+  </ion-item>
+  <div class="error" *ngIf="
+  formSignIn.controls['password'].hasError('minlength') &&
+  formSignIn.controls.password.touched
+">
+<p>
+  <ion-label class="">
+    Please Input Password!</ion-label>
+</p>
+</div>
+<div class="forgot">
+  <ion-text><p>Forgot password?</p></ion-text>
+</div>
+<br><br>
+  <div>
+    <ion-button
+      (click)="login()"
+      expand="block"
+      fill="solid"
+      size="large"
+      color="green"
+      style="border-radius: 18px"
+      border-radius="18px"
+    >
+      Login
+    </ion-button>
+    <br />
+    <ion-text>
+      <p class="small-text ion-text-center ion-align-items-center">
+        New User? <a (click)="signup()" class="signup">Sign Up</a>
+      </p>
+    </ion-text>
+  </div>
+  </form>
+</ion-content>

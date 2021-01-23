@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">populyce</string>
+    <string name="title_activity_main">populyce</string>
+    <string name="package_name">app.populyce.com</string>
+    <string name="custom_url_scheme">app.populyce.com</string>
+</resources>

@@ -1,0 +1,14 @@
+{
+  "appId": "app.populyce.com",
+  "appName": "populyce",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/home/satowind/android-studio/bin/studio.sh"
+}

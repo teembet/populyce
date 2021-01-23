@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="menu/first/tabs/funds/fund-inner"
+        color="theme"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Loan Allocation</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="amounts">
+    <!-- <div>
+    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions">
+    </highcharts-chart>
+  </div> -->
+
+    <div class="circle">
+      <div class="wave">
+        <h3>{{amounts.loan | currency}}</h3>
+        <h5 class="green">+$2,250.00</h5>
+        <h5 class="green">3% &#11014;</h5>
+      </div>
+    </div>
+
+    <p>
+      All loans have a 6% interest. We minus that from inflation to make sure
+      your money isn't devalued.
+    </p>
+
+    <h6 class="h6">Time range: 1 year</h6>
+
+    <ion-card>
+      <div class="bar2"></div>
+      <div class="chart">
+        <img src="../../../assets/Loan Allocation Icon.png" alt="" />
+      </div>
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Loan Allocation</h4>
+          <h6>{{amounts.loan_percentage.toFixed(2) }}/100%</h6>
+        </div>
+
+        <div>
+          <h4>{{amounts.loan | currency}}</h4>
+          <h6 class="green">+ {{ calculate() | currency}} | 6% &#11014;</h6>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

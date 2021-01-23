@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/manage" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Fund Allocation</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="here">
+    <div class="outer">
+      <div class="round"></div>
+    </div>
+
+    <p class="para">Choose a percentage for each allocation</p>
+    <ion-card (click)="cash()">
+      <div class="bar"></div>
+
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Cash Allocation</h4>
+        </div>
+
+        <div>
+          <h4>{{amounts.cash_percentage.toFixed(2) }}%/100%</h4>
+          <h6 class="red">{{amounts.cash | currency }}</h6>
+        </div>
+      </div>
+    </ion-card>
+    <br />
+    <div
+      *ngIf="cash_div"
+      class="form-container ion-padding animate__animated animate__slideInUp animate__faster"
+    >
+      <ion-item>
+        <ion-label position="stacked">Amount </ion-label>
+        <ion-input
+          type="tel"
+          clearInput="true"
+          [(ngModel)]="cash_amount"
+          required
+          type="text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">From </ion-label>
+        <ion-select [(ngModel)]="cash_select" placeholder="choose fund">
+          <ion-select-option value="loan">Loan</ion-select-option>
+          <ion-select-option disabled value="Stock">Stock</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        fill="solid"
+        color="green"
+        (click)="move_fund('loan','cash')"
+      >
+        Finalize
+      </ion-button>
+    </div>
+
+    <br />
+    <ion-card (click)="loan()">
+      <div class="bar2"></div>
+
+      <div class="first">
+        <div>
+          <h4 style="display: contents">Loan Allocation</h4>
+        </div>
+
+        <div>
+          <h4>{{amounts.loan_percentage.toFixed(2) }}%/100%</h4>
+          <h6 class="green">{{amounts.loan | currency }}</h6>
+        </div>
+      </div>
+    </ion-card>
+    <br />
+    <div
+      *ngIf="loan_div"
+      class="form-container ion-padding animate__animated animate__slideInUp animate__faster"
+    >
+      <ion-item>
+        <ion-label position="stacked">Amount </ion-label>
+        <ion-input
+          type="tel"
+          clearInput="true"
+          required
+          type="text"
+          [(ngModel)]="loan_amount"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">From </ion-label>
+        <ion-select [(ngModel)]="loan_select" placeholder="Choose fund">
+          <ion-select-option value="cash">Cash</ion-select-option>
+          <ion-select-option disabled value="Stock">Stock</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        fill="solid"
+        color="green"
+        (click)="move_fund('cash','loan')"
+      >
+        Finalize
+      </ion-button>
+    </div>
+
+    <br />
+    <div [routerLink]="['/stock-profile']">
+      <ion-card>
+        <div class="bar3"></div>
+        <div class="first">
+          <div>
+            <h4 style="display: contents">Stock Allocation</h4>
+          </div>
+
+          <div>
+            <h4>{{amounts.stock_percentage.toFixed(2) }}%/100%</h4>
+            <h6 class="green">{{amounts.stock | currency }}</h6>
+          </div>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

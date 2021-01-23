@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/funds" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-align-items-center ion-text-center"
+      >Notification</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="here">
+    <div class="ion-padding ion-card" *ngFor="let item of announcements.data">
+      <ion-card-title class="users-name">{{item.title}}</ion-card-title>
+
+      <ion-card-subtitle class="age">{{item.description}}</ion-card-subtitle>
+    </div>
+  </div>
+</ion-content>

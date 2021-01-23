@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon
+      size="large"
+      slot="start"
+      name="chevron-back-outline"
+      color="theme"
+      (click)="goback()"
+    ></ion-icon>
+
+    <ion-title *ngIf="!amount"><p>Initial Fund</p></ion-title>
+    <ion-title *ngIf="amount"><p>Share Percentage</p></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="!amount">
+    <ion-item>
+      <ion-label position="stacked">Amount </ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="amountinput"
+        name="amountinput"
+        required
+      ></ion-input>
+    </ion-item>
+    <br />
+    <br />
+    <ion-button
+      (click)="proceedAmount()"
+      expand="block"
+      fill="solid"
+      size="large"
+      color="green"
+    >
+      Proceed
+    </ion-button>
+  </div>
+
+  <div *ngIf="amount">
+    <ion-item>
+      <ion-label position="stacked">Loan </ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="loaninput"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label position="stacked">Stock</ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="stockinput"
+        required
+      ></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label position="stacked">Cash </ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="cashinput"
+        required
+      ></ion-input>
+    </ion-item>
+    <br />
+    <br />
+
+    <ion-button
+      (click)="proceedShare()"
+      expand="block"
+      fill="solid"
+      size="large"
+      color="green"
+    >
+      Proceed
+    </ion-button>
+  </div>
+</ion-content>

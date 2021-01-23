@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/funds" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center"
+      >External Bank</ion-title
+    >
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="here">
+    <div class="holder">
+      <img src="../../../assets/Bank Icon.png" alt="" />
+      <h3>Chase Bank</h3>
+
+      <h6>Change Bank</h6>
+      <h4>Fund Value</h4>
+      <h4>{{amounts.amount | currency }}</h4>
+    </div>
+    <div class="bottom">
+      <br />
+      <ion-button
+        mode="ios"
+        expand="block"
+        fill="outline"
+        size="large"
+        color="green"
+        (click)="withdraw()"
+      >
+        Withdrawal
+      </ion-button>
+      <br />
+      <ion-button
+        mode="ios"
+        expand="block"
+        fill="solid"
+        size="large"
+        color="green"
+        (click)="deposit()"
+      >
+        Deposit
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

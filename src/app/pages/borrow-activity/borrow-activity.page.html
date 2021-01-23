@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/first/tabs/funds" color="theme">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center">Borrow</ion-title>
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="here">
+  <div class="top-header ion-padding">
+    <div class="first">
+      <div style="text-align: center">
+        <h6 style="font-weight: 100">Amount Borrowed:</h6>
+        <h2>{{borrow.borrow_sum | currency}}</h2>
+      </div>
+    </div>
+    <div class="first">
+      <div style="text-align: center">
+        <h6 style="font-weight: 100">Interest Rate:</h6>
+        <h2>{{borrow.Interest_rate}}%</h2>
+      </div>
+    </div>
+  </div>
+  <div class="ion-padding">
+    <div>
+      <div class="row">
+        <h5>Amount</h5>
+        <div>
+          <ion-card class="mycolor">
+            <div class="">
+              <div style="display: flex; justify-content: space-between">
+                <div>
+                  <h6
+                    style="
+                      display: contents;
+                      color: black;
+                      font-weight: 100;
+                      font-size: 20px;
+                    "
+                  >
+                    Amount Borrowed
+                  </h6>
+                  <p class="text" style="font-weight: 100">
+                    Date: {{borrow.date_borrow | date}}
+                  </p>
+                </div>
+                <h6
+                  style="
+                    display: contents;
+                    color: black;
+                    font-weight: 100;
+                    font-size: 20px;
+                  "
+                >
+                  {{borrow.borrow_sum | currency}}
+                </h6>
+              </div>
+              <div>
+                <br />
+                <p style="display: contents; color: black" class="text">
+                  Funds will be put on hold if the value drops by 50%()
+                </p>
+              </div>
+            </div>
+          </ion-card>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <h5>Bill</h5>
+        <div>
+          <ion-card class="mycolor">
+            <div class="">
+              <div style="display: flex; justify-content: space-between">
+                <div>
+                  <h6
+                    style="
+                      display: contents;
+                      color: black;
+                      font-weight: 100;
+                      font-size: 20px;
+                    "
+                  >
+                    Amount Borrowed
+                  </h6>
+                  <p class="text" style="font-weight: 100">
+                    Date: {{borrow.next_borrow |date}}
+                  </p>
+                  <p class="text" style="font-weight: 100">
+                    Estimated Bill: {{borrow.estimated_bill.toFixed(2) |
+                    currency}}
+                  </p>
+                  <p class="text" style="font-weight: 100">
+                    Interest Now: {{borrow.interest | currency}}
+                  </p>
+                </div>
+              </div>
+              <div>
+                <br />
+                <p style="display: contents; color: black" class="text">
+                  Interest is collected monthly from your fund until the
+                  principal is payed back
+                </p>
+              </div>
+            </div>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <ion-button
+      mode="ios"
+      expand="block"
+      fill="outline"
+      size="large"
+      color="green"
+      (click)="borrow_money()"
+    >
+      Borrow
+    </ion-button>
+    <br />
+    <ion-button
+    (click)="payback()"
+      mode="ios"
+      expand="block"
+      fill="solid"
+      size="large"
+      color="green"
+      (click)="payback()"
+    >
+      Pay Back
+    </ion-button>
+  </div>
+</div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-content (click)="comeup()">
+  <div class="ion-content">
+    <div
+      *ngIf="show"
+      class="bottom ion-padding animate__animated animate__slideInUp animate__faster"
+    >
+      <ion-text>
+        <h1 class="bold-text ion-text-center ion-align-items-center">
+          Banking for the people
+        </h1>
+      </ion-text>
+
+      <ion-text>
+        <p class="small-text ion-text-center ion-align-items-center">
+          Manage your money like a bank
+        </p>
+      </ion-text>
+      <br />
+      <ion-button
+        mode="ios"
+        (click)="signup()"
+        expand="block"
+        fill="solid"
+        size="large"
+        color="green"
+      >
+        Sign Up
+      </ion-button>
+      <br />
+      <ion-button
+        mode="ios"
+        (click)="login()"
+        expand="block"
+        fill="outline"
+        size="large"
+        color="green"
+      >
+        Log In
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="!amount">
+      <ion-back-button defaultHref="move-money" color="theme"></ion-back-button>
+    </ion-buttons>
+
+    <ion-icon
+      *ngIf="amount"
+      size="large"
+      slot="start"
+      name="chevron-back-outline"
+      color="theme"
+      (click)="goback()"
+    ></ion-icon>
+
+    <ion-title>One-time Transfer</ion-title>
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="!amount">
+    <p>From Fund</p>
+    <h5>To</h5>
+    <ion-card>
+      <div class="first">
+        <div>
+          <h4>Bank:Chase Account</h4>
+        </div>
+      </div>
+    </ion-card>
+    <br />
+    <br />
+    <div>
+      <ion-item>
+        <ion-label position="stacked">Amount</ion-label>
+        <ion-input
+          type="number"
+          clearInput="true"
+          [(ngModel)]="amountinput"
+          required
+        ></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="bottom">
+      <ion-button
+        (click)="proceedShare()"
+        expand="block"
+        fill="solid"
+        size="large"
+        color="green"
+      >
+        Transfer
+      </ion-button>
+      <br />
+    </div>
+  </div>
+  <div *ngIf="amount">
+    <ion-item>
+      <ion-label position="stacked">Loan </ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="loaninput"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Stock</ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="stockinput"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Cash </ion-label>
+      <ion-input
+        type="number"
+        clearInput="true"
+        [(ngModel)]="cashinput"
+        required
+      ></ion-input>
+    </ion-item>
+    <br />
+    <br />
+
+    <ion-button
+      (click)="proceedShare()"
+      expand="block"
+      fill="solid"
+      size="large"
+      color="green"
+    >
+      Proceed
+    </ion-button>
+  </div>
+</ion-content>

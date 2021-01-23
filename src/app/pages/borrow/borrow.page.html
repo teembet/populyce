@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="theme"> </ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-align-items-center ion-text-center">Borrow</ion-title>
+
+    <ion-buttons (click)="notifications()" slot="end">
+      <ion-icon
+        size="large"
+        color="theme"
+        name="notifications-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end"> &nbsp; &nbsp; </ion-buttons>
+
+    <ion-buttons (click)="user_info()" slot="end">
+      <ion-icon size="large" color="theme" name="person-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="here">
+    <!-- <div>
+    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions">
+    </highcharts-chart>
+  </div> -->
+
+    <div class="outer">
+      <div class="round">
+        <h3>{{amounts.amount| currency}}</h3>
+        <h5>+$8,812.50</h5>
+        <h5>10% &#11014;</h5>
+      </div>
+    </div>
+    <div style="display: flex">
+      <ion-card>
+        <div class="first">
+          <div>
+            <h6 style="display: contents">Percentage available to Borrow:</h6>
+          </div>
+
+          <div>
+            <h5>30.00/100%</h5>
+            <h6 class="green">{{(amounts.amount/100)*30 | currency}}</h6>
+          </div>
+        </div>
+      </ion-card>
+    </div>
+    <br />
+    <div>
+      <ion-button
+        (click)="borrow_money()"
+        mode="ios"
+        expand="block"
+        fill="solid"
+        size="large"
+        color="green"
+      >
+        Borrow Money
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
